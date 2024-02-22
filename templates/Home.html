@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+<!--    Tailwind Config Setup --- Custom Classes    -->
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+    <title>Home Page</title>
+</head>
+<body class="bg-slate-900">
+<!--Products Loop-->
+    <div class="flex gap-3 flex-wrap p-5">
+        {% for Prod in Prods %}
+            <div class="text-slate-200 bg-slate-800 p-3 min-w-[30vw] flex-auto">
+                <p class="text-l truncate">{{ Prod.Name }}</p>
+                <hr class="my-2">
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
